@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.X)){
             PlayerShoot();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            GameController.controller.ui_controller.QuitGame();
+        }
     }
 
     void MovePlayer(){

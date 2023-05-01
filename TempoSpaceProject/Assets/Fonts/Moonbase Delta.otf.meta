@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5b2dc13f6a33e2240844e79cb0632e29
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Moonbase Delta
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7e74c9a67fef0254f9d291d91de4855a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
         ui_controller.UpdateScore(score);
 
         if(score>=2000){
-            ResetValues();
+            score = 0;
             ui_controller.SceneChange("VictoryScene");
         }
     }
@@ -33,16 +33,10 @@ public class GameController : MonoBehaviour
     public void ReduceHealth(){
         health--;
         if(health<=0){
-            ResetValues();
+            health = 10;
             ui_controller.SceneChange("DefeatScene");
         }
         ui_controller.UpdateHealth(health);
-    }
-
-    private void ResetValues()
-    {
-        health = 10;
-        score = 0;
     }
 
 }
