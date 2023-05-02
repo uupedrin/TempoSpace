@@ -26,13 +26,13 @@ public class Player : MonoBehaviour
         v = Input.GetAxisRaw("Vertical");
         Vector3 h_movement = Vector3.zero, v_movement = Vector3.zero;
 
-        if((h>0 && transform.position.x < 91) || (h<0 && transform.position.x > -91)){
+        if((h>0 && transform.position.x < 27) || (h<0 && transform.position.x > -27)){
             h_movement = Vector3.right * h;
         }else {
             h_movement = Vector3.zero;
         }
 
-        if((v>0 && transform.position.z < 45) || (v<0 && transform.position.z > -52)){
+        if((v>0 && transform.position.z < -27) || (v<0 && transform.position.z > -45)){
             v_movement = Vector3.forward * v;
         }else {
             v_movement = Vector3.zero;
