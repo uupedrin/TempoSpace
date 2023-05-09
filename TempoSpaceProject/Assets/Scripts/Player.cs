@@ -6,8 +6,9 @@ public class Player : MonoBehaviour
 {
     
     float v,h;
-    public float bullet_speed, move_speed, bullet_remove_time;
+    public float bullet_speed, move_speed, bullet_remove_time, aimOffset;
     public GameObject bullet;
+    public Transform aim;
 
     void Update()
     {
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape)){
             GameController.controller.ui_controller.QuitGame();
         }
+        AimMovement();
     }
 
     void MovePlayer(){
@@ -46,5 +48,10 @@ public class Player : MonoBehaviour
         Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
         temp_rb.AddForce(transform.forward * bullet_speed, ForceMode.VelocityChange);
         Destroy(temp_bullet, bullet_remove_time);
+    }
+
+    void AimMovement(){
+        Vector3 playerPos = Vector3.right * transform.position.x;
+        aim.position = new Vector3(transform.position.x, transform.position.y, aimOffset);
     }
 }
