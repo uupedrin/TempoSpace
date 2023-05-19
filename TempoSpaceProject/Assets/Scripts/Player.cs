@@ -23,34 +23,31 @@ public class Player : MonoBehaviour
         AimMovement();
     }
 
-    void MovePlayer(){
+    void MovePlayer()
+    {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
         Vector3 h_movement = Vector3.zero, v_movement = Vector3.zero;
 
-        if((h>0 && transform.position.x < 27) || (h<0 && transform.position.x > -27)){
+        if ((h > 0 && transform.position.x < 27) || (h < 0 && transform.position.x > -27)) {
             h_movement = Vector3.right * h;
-        }else {
+        }
+        else
+        {
             h_movement = Vector3.zero;
         }
 
-        if((v>0 && transform.position.z < -27) || (v<0 && transform.position.z > -45)){
+        if ((v > 0 && transform.position.z < -27) || (v < 0 && transform.position.z > -45))
+        {
             v_movement = Vector3.forward * v;
-        }else {
+        }
+        else
+        {
             v_movement = Vector3.zero;
         }
         Vector3 movement = h_movement + v_movement;
         transform.position += movement.normalized * Time.deltaTime * move_speed;
     }
-
-    /*void _RotatePlayer(int rotationType){
-        switch (rotationType){
-            case -1{
-                Quaternion rot;
-                rot.eulerAngles = Vector3.right;
-            }
-        }
-    }*/
 
     void PlayerShoot(){
         GameObject temp_bullet = Instantiate(bullet, transform.position, transform.rotation);
