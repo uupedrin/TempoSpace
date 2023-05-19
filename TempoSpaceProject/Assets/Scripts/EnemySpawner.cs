@@ -23,10 +23,13 @@ public class EnemySpawner : MonoBehaviour
             Rigidbody temp_rb = temp_powerup.GetComponent<Rigidbody>();
             temp_rb.AddForce(transform.forward * move_speed * -1, ForceMode.VelocityChange);
         }else{
+            
+            //Pegar o movement do Inimigo e inserir ele aqui
             GameObject temp_enemy = Instantiate(enemy, transform.position, transform.rotation);
             temp_enemy.transform.position = new Vector3(posx, 5, posz);
             Rigidbody temp_rb = temp_enemy.GetComponent<Rigidbody>();
             temp_rb.AddForce(transform.forward * move_speed * -1, ForceMode.VelocityChange);
+            
         } 
     }
 }

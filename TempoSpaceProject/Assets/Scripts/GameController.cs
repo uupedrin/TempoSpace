@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController controller;
     public UIController ui_controller;
     public int score, health;
+    public GameObject[] PowerUps; //Aqui você coloca todos os Powerups que existem.
 
     private void Awake() {
         if(controller == null){

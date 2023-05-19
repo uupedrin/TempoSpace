@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000076778, g: 0.00009483512, b: 0.00039900944, a: 1}
+  m_IndirectSpecularColor: {r: 0.00012033763, g: 0.00014531931, b: 0.0006063026, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c92a05aa28f9a141abfa492881885ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7985331959650639532, guid: 1d25b86251196504bb7c9e4de5ce2831, type: 3}
+  enemy: {fileID: 1685980318645202834, guid: f876c77d89a8e4e4bbf141c7b48853ea, type: 3}
   powerup: {fileID: 1642151196559886423, guid: 79ce3b4cd01d6df4b9175b45f8c658ce, type: 3}
   move_speed: 30
 --- !u!4 &127263068
@@ -726,6 +726,7 @@ MonoBehaviour:
   ui_controller: {fileID: 0}
   score: 0
   health: 10
+  PowerUps: []
 --- !u!4 &1393353235
 Transform:
   m_ObjectHideFlags: 0

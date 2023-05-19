@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float bullet_speed, move_speed, bullet_remove_time, aimOffset;
     public GameObject bullet;
     public Transform aim;
+    public int firerate = 1; //Colocar o valor da variável corretamente posteriormente;
 
     void Update()
     {
