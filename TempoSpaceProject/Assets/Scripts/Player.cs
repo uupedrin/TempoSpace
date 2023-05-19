@@ -43,6 +43,15 @@ public class Player : MonoBehaviour
         transform.position += movement.normalized * Time.deltaTime * move_speed;
     }
 
+    /*void _RotatePlayer(int rotationType){
+        switch (rotationType){
+            case -1{
+                Quaternion rot;
+                rot.eulerAngles = Vector3.right;
+            }
+        }
+    }*/
+
     void PlayerShoot(){
         GameObject temp_bullet = Instantiate(bullet, transform.position, transform.rotation);
         Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
