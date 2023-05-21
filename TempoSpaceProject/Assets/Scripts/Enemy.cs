@@ -5,11 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float bullet_speed, bullet_remove_time = 2;
-    public GameObject bullet;
+    public GameObject bullet, Target;
     private float powerupchance = 10,powerupspeed = 1, speed = 1; // Colocar o número da velocidade mais apropriado em ambos
     public Transform[] WayPoints; // Para fazer o inimigo ir de um lado para o outro.
     private float worldtime, time; // Para que os inimigos não fiquem spawnando um encima do outro
-    public int Behaviour; // Colocar todos os inimigos aqui dentro.
+    public int EnemyType; // Colocar o tipo de comportamento que o inimigo terá dentro da unity, basta trocar os números já que estou utilizando Switch Case.
 
     private void Start() {
         InvokeRepeating("EnemyShoot",1f, 1.5f);
@@ -20,25 +20,48 @@ public class Enemy : MonoBehaviour
         temp_rb.AddForce(transform.forward * bullet_speed * -1, ForceMode.VelocityChange);
         Destroy(temp_bullet,bullet_remove_time);
     }
-    private void OnTriggerEnter(Collider other) {
-        if(other.tag == "Player"){
-
-            PowerUpSpawn();
-            GameController.controller.ReduceHealth();
-            Destroy(this.gameObject);
-        }
-    }
 
     public void EnemyMove()
     {
-        switch (Behaviour)
+        switch (EnemyType)
         {
             default:
                 break;
-            case 1:
+            case 1: // Por algum motivo o inimigo da garra não quer mais sair do spawn. Corrigir depois.
                 worldtime += Time.deltaTime;
                 time = Mathf.PingPong(worldtime * speed, 1);
                 transform.position = Vector3.Lerp(WayPoints[0].position, WayPoints[1].position, time);
+                break;
+
+            case 2: //Inimigo não morre quando é atingido pela bala, provavelmente o objeto está sendo spawnado abaixo da box collider da Bullet, o que faz a bala errar.
+                transform.position += (transform.forward * speed * Time.deltaTime);
+                Destroy(gameObject, 3.5f);
+                break;
+
+            case 3: // Inimigo não fica olhando para o player (arrumar).
+                Target = GameObject.FindWithTag("Player");
+                transform.position += (transform.forward * speed * Time.deltaTime); // Comportamento provisório para o inimigo dos raios
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Player":
+                GameController.controller.AddScore();
+                GameController.controller.ReduceHealth();
+                Destroy(this.gameObject);
+                break;
+
+            case "PBullet":
+                GameController.controller.AddScore();
+                Destroy(this.gameObject);
+                PowerUpSpawn();
+                break;
+            
+            default:
                 break;
         }
     }

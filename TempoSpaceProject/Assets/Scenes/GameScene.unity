@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00012033763, g: 0.00014531931, b: 0.0006063026, a: 1}
+  m_IndirectSpecularColor: {r: 0.000120279925, g: 0.00014530818, b: 0.000606593, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,8 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c92a05aa28f9a141abfa492881885ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1685980318645202834, guid: f876c77d89a8e4e4bbf141c7b48853ea, type: 3}
-  powerup: {fileID: 1642151196559886423, guid: 79ce3b4cd01d6df4b9175b45f8c658ce, type: 3}
+  enemy:
+  - {fileID: 862804319099939753, guid: 14eaf3f0b7a880540b94380fe4c35cba, type: 3}
+  - {fileID: 7238406353519055342, guid: cc19ee3250265d041b1991862595023f, type: 3}
+  - {fileID: 6926068265982166571, guid: b198ac76cca79cc4b9a511db1c07e337, type: 3}
   move_speed: 30
 --- !u!4 &127263068
 Transform:
@@ -726,7 +728,10 @@ MonoBehaviour:
   ui_controller: {fileID: 0}
   score: 0
   health: 10
-  PowerUps: []
+  PowerUps:
+  - {fileID: 1812328888564002301, guid: a3a1a72b17c01a04a857601f50b7bf5e, type: 3}
+  - {fileID: 3364005466971462811, guid: a76cce32b55208a4680b38b8042c551e, type: 3}
+  - {fileID: 5943017533025391923, guid: b9b22b3b2bdc3e149bc083683872f298, type: 3}
 --- !u!4 &1393353235
 Transform:
   m_ObjectHideFlags: 0
@@ -870,6 +875,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5944157870770997204, guid: df3b2c0aa20307e488e47bbd31081c7d, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944157870770997204, guid: df3b2c0aa20307e488e47bbd31081c7d, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5944157870770997208, guid: df3b2c0aa20307e488e47bbd31081c7d, type: 3}

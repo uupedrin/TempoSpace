@@ -8,6 +8,9 @@ TagManager:
   - PBullet
   - EBullet
   - Menu
+  - Life
+  - FireRateIncrease
+  - ShieldUp
   layers:
   - Default
   - TransparentFX
