@@ -11,10 +11,10 @@ public class UIController : MonoBehaviour
         GameController.controller.ui_controller = this;
     }
     public void UpdateScore(int score){
-        txt_score.text = "Score: " + score;
+        txt_score.text = "Score: " + score.ToString("00000");
     }
     public void UpdateHealth(int health){
-        txt_health.text = "Health: " + health;
+        txt_health.text = "<> " + health;
     }
     public void SetPowerupText(string pwp_text){
         txt_powerup.text = pwp_text;

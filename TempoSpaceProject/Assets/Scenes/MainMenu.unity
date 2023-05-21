@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00020213879, g: 0.00024618825, b: 0.0010051146, a: 1}
+  m_IndirectSpecularColor: {r: 0.00018685774, g: 0.00022801744, b: 0.0009272674, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1784,6 +1784,7 @@ MonoBehaviour:
   ui_controller: {fileID: 0}
   score: 0
   health: 10
+  PowerUps: []
 --- !u!4 &1266069646
 Transform:
   m_ObjectHideFlags: 0
@@ -2118,7 +2119,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2023 PUC Minas
+  m_Text: 2023 Tempo Space
 --- !u!222 &1791951148
 CanvasRenderer:
   m_ObjectHideFlags: 0

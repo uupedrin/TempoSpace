@@ -6,7 +6,7 @@ public class Powerup : MonoBehaviour
 {
     private Player script;
 
-    // Eu já fiz todos os 3 primeiros PowerUps como prefabs dentro das pastas, já estão com tags também, só falta colocar cor e colocar a função do shield. 
+    // Eu jï¿½ fiz todos os 3 primeiros PowerUps como prefabs dentro das pastas, jï¿½ estï¿½o com tags tambï¿½m, sï¿½ falta colocar cor e colocar a funï¿½ï¿½o do shield. 
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player")
@@ -19,7 +19,7 @@ public class Powerup : MonoBehaviour
                 break;
 
             case "FireRateIncrease": // Arranjei um jeito de fazer isso funcionar, e pelo visto deu certo. Ainda tem que testar
-                    Player.player.firerate -= 2;
+                    Player.player.fireRate -= 2;
                 break;
 
             case "ShieldUp": //Criar o escudo e colocar a tag dele aqui pra ele ser ativadado.
@@ -31,6 +31,6 @@ public class Powerup : MonoBehaviour
             }
 
             Destroy(gameObject);
-        }
+        } 
     }
 }

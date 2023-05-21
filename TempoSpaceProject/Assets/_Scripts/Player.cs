@@ -6,18 +6,26 @@ public class Player : MonoBehaviour
 {
     public static Player player;
     float v,h;
-    public float bullet_speed, move_speed, bullet_remove_time, aimOffset;
-    public GameObject bullet;
-    public Transform aim;
-    public int firerate = 1; //Colocar o valor da variável corretamente posteriormente;
+    [Header("Movement")]
+    [SerializeField] float moveSpeed;
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float maximumRotation;
 
+
+    [Header("Shooting")]
+    [SerializeField] float bulletSpeed;
+    public float fireRate;
+    [SerializeField] float bulletRemoveTime;
+    [SerializeField] float aimOffset;
+    [SerializeField] Transform[] guns;
+    public int currentWeaponUpgrade = 1;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform aim;
+    bool canFire = true;
     void Update()
     {
         MovePlayer();
-        if(Input.GetKeyDown(KeyCode.X)){
-            PlayerShoot();
-        }
-
+        PlayerShoot();
         if(Input.GetKeyDown(KeyCode.Escape)){
             GameController.controller.ui_controller.QuitGame();
         }
@@ -32,10 +40,14 @@ public class Player : MonoBehaviour
 
         if ((h > 0 && transform.position.x < 27) || (h < 0 && transform.position.x > -27)) {
             h_movement = Vector3.right * h;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(Vector3.back * maximumRotation * h), rotationSpeed * Time.deltaTime);
+
         }
         else
         {
             h_movement = Vector3.zero;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(Vector3.zero), rotationSpeed * Time.deltaTime);
+
         }
 
         if ((v > 0 && transform.position.z < -27) || (v < 0 && transform.position.z > -45))
@@ -47,14 +59,24 @@ public class Player : MonoBehaviour
             v_movement = Vector3.zero;
         }
         Vector3 movement = h_movement + v_movement;
-        transform.position += movement.normalized * Time.deltaTime * move_speed;
+        transform.position += movement.normalized * Time.deltaTime * moveSpeed;
     }
 
     void PlayerShoot(){
+        if (Input.GetButton("Fire1") && canFire)
+        {
+            StartCoroutine("_Fire");
+        }
+    }
+
+    IEnumerator _Fire(){
+        canFire = false;
         GameObject temp_bullet = Instantiate(bullet, transform.position, transform.rotation);
         Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
-        temp_rb.AddForce(transform.forward * bullet_speed, ForceMode.VelocityChange);
-        Destroy(temp_bullet, bullet_remove_time);
+        temp_rb.AddForce(transform.forward * bulletSpeed, ForceMode.VelocityChange);
+        Destroy(temp_bullet, bulletRemoveTime);
+        yield return new WaitForSeconds(fireRate);
+        canFire = true;
     }
 
     void AimMovement(){
