@@ -9731,10 +9731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130cd2eb8ec14994e8da285ecf3ac736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
+  bulletSpeed: 50
   bulletRemoveTime: 2
   health: 3
-  bullet: {fileID: 8039816862834279505, guid: 3c581587ff18b0047bbddb421d1882c8, type: 3}
+  bullet: {fileID: 8039816862834279505, guid: a7ae92dd6a1d71f4397ef1f46765d874, type: 3}
   Target: {fileID: 0}
   WayPoints:
   - {fileID: 0}
@@ -9753,7 +9753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 0.49019608, g: 0, b: 0, a: 1}
-  flashTime: 2
+  flashDuration: 0.15
 --- !u!1001 &2252551535805102716
 PrefabInstance:
   m_ObjectHideFlags: 0

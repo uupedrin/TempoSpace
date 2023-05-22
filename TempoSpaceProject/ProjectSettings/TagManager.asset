@@ -10,7 +10,7 @@ TagManager:
   - Menu
   - Life
   - FireRateIncrease
-  - ShieldUp
+  - Shield
   layers:
   - Default
   - TransparentFX

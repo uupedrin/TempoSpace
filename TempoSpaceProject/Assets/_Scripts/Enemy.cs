@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public float bulletSpeed, bulletRemoveTime = 2;
     [SerializeField] int health = 3;
     public GameObject bullet, Target;
-
     DamageFlash damageFlash;
 
     private float powerupchance = 10,powerupspeed = 1, speed = 1; // Colocar o n�mero da velocidade mais apropriado em ambos
@@ -20,7 +19,8 @@ public class Enemy : MonoBehaviour
         damageFlash = GetComponent<DamageFlash>();
     }
     private void EnemyShoot(){
-        GameObject temp_bullet = Instantiate(bullet, transform.position, transform.rotation);
+        GameObject temp_bullet = Instantiate(bullet, transform.position, Quaternion.Euler(0,180,0));
+        temp_bullet.tag = "EBullet";
         Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
         temp_rb.AddForce(transform.forward * bulletSpeed * -1, ForceMode.VelocityChange);
         Destroy(temp_bullet,bulletRemoveTime);
@@ -52,23 +52,17 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /* switch (other.tag)
+        switch (other.tag)
         {
             case "Player":
-                GameController.controller.AddScore();
-                GameController.controller.ReduceHealth();
+                other.GetComponent<Player>().TakeDamage();
                 Destroy(this.gameObject);
                 break;
-
             case "PBullet":
-                GameController.controller.AddScore();
-                Destroy(this.gameObject);
-                PowerUpSpawn();
-                break;
-            
-            default:
-                break;
-        } */
+                TakeDamage();
+                Destroy(other.gameObject);
+            break;
+        }
     }
 
     private void PowerUpSpawn()
@@ -82,7 +76,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amountOfDamage){
+    public void TakeDamage(int amountOfDamage = 1){
         damageFlash.UseDoDamageFlash();
         health -= amountOfDamage;
         if(health <= 0){

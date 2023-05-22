@@ -30,4 +30,9 @@ public class UIController : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public Image ShieldBarFull;
+    public void SetShieldBarValue(float value){
+        ShieldBarFull.fillAmount = value / 100;
+    }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class DamageFlash : MonoBehaviour
 {
     [SerializeField] Color flashColor = new Color(125,0,0, 255);
-    [SerializeField] float flashSpeed = 2;
+    [SerializeField] float flashDuration = .15f;
     MeshRenderer[] meshRenderers;
     Material[] materials;
-    float currentFlash;
+
+    private Coroutine flashRoutine;
 
     private void Start()
     {
@@ -25,25 +26,25 @@ public class DamageFlash : MonoBehaviour
     }
 
     public void UseDoDamageFlash(){
-        StartCoroutine("DoDamageFlash");
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+        flashRoutine = StartCoroutine("DoDamageFlash");
     }
 
     IEnumerator DoDamageFlash()
     {
-        currentFlash = 1;
-        while (currentFlash > 0)
-        {
-            currentFlash -= Time.deltaTime * flashSpeed;
-            SetFlashValue(currentFlash);
-        }
-        SetFlashValue(currentFlash);
-        yield return null;
+        SetFlashValue(1);
+        yield return new WaitForSeconds(flashDuration);
+        SetFlashValue(0);
+        flashRoutine = null;
     }
 
     void SetFlashValue(float amount){
         for (int i = 0; i < materials.Length; i++)
         {
-            materials[i].SetFloat("_FlashAmount", 1);
+            materials[i].SetFloat("_FlashAmount", amount);
         }
     }
     

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [Header("Shooting")]
     [SerializeField] float bulletSpeed;
     public float fireRate;
+    float OGFireRate;
     [SerializeField] float bulletRemoveTime;
     [SerializeField] float aimOffset;
     [SerializeField] Transform[] guns;
@@ -22,6 +23,25 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform aim;
     bool canFire = true;
+    DamageFlash damageFlash;
+
+    public enum Powerups
+    {
+        NONE, SHIELD, FIRERATE, HEALTH 
+    }
+
+    [Header("Powerups")]
+    [SerializeField] Shield shieldObject;
+    public Powerups currentPWP;
+
+
+
+    void Start(){
+        damageFlash = GetComponent<DamageFlash>();
+        shieldObject = GetComponentInChildren<Shield>();
+        OGFireRate = fireRate;
+        SetPowerup(1);
+    }
     void Update()
     {
         MovePlayer();
@@ -71,10 +91,17 @@ public class Player : MonoBehaviour
 
     IEnumerator _Fire(){
         canFire = false;
-        GameObject temp_bullet = Instantiate(bullet, transform.position, transform.rotation);
-        Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
-        temp_rb.AddForce(transform.forward * bulletSpeed, ForceMode.VelocityChange);
-        Destroy(temp_bullet, bulletRemoveTime);
+        switch (currentWeaponUpgrade)
+        {
+            case 1:
+                GameObject temp_bullet = Instantiate(bullet, guns[0].position, transform.rotation);
+                Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
+                temp_rb.AddForce(transform.forward * bulletSpeed, ForceMode.VelocityChange);
+                Destroy(temp_bullet, bulletRemoveTime);
+            break;
+
+        }
+        
         yield return new WaitForSeconds(fireRate);
         canFire = true;
     }
@@ -82,5 +109,48 @@ public class Player : MonoBehaviour
     void AimMovement(){
         Vector3 playerPos = Vector3.right * transform.position.x;
         aim.position = new Vector3(transform.position.x, transform.position.y, aimOffset);
+    }
+
+    public void TakeDamage(){
+        damageFlash.UseDoDamageFlash();
+        GameController.controller.ReduceHealth();
+    }
+
+    public void SetPowerup(int powerupIndex){
+        switch ((Powerups)powerupIndex)
+        {
+            case Powerups.SHIELD:
+                shieldObject.EnableShield();
+                RemovePowerup();
+            break;
+            case Powerups.FIRERATE:
+                fireRate /= 2;
+                Invoke("RevertFireRate", Time.time * 2);
+            break;
+            case Powerups.HEALTH:
+
+                RemovePowerup();
+            break;
+        }
+    }
+
+    public void RevertFireRate(){
+        fireRate = OGFireRate;
+        RemovePowerup();
+    }
+
+    public void RemovePowerup(){
+        currentPWP = Powerups.NONE;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "EBullet":
+                Destroy(other.gameObject);
+                TakeDamage();
+            break;
+        }
     }
 }

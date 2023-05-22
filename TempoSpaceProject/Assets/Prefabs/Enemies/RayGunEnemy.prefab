@@ -90,9 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130cd2eb8ec14994e8da285ecf3ac736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_speed: 50
-  bullet_remove_time: 2
-  bullet: {fileID: 8039816862834279505, guid: 3c581587ff18b0047bbddb421d1882c8, type: 3}
+  bulletSpeed: 0
+  bulletRemoveTime: 2
+  health: 3
+  bullet: {fileID: 8039816862834279505, guid: a7ae92dd6a1d71f4397ef1f46765d874, type: 3}
   Target: {fileID: 5944157870770997204, guid: df3b2c0aa20307e488e47bbd31081c7d, type: 3}
   WayPoints: []
   EnemyType: 3
