@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00018685774, g: 0.00022801744, b: 0.0009272674, a: 1}
+  m_IndirectSpecularColor: {r: 0.00017838324, g: 0.00022046175, b: 0.000925889, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1107,6 +1107,7 @@ MonoBehaviour:
   txt_score: {fileID: 0}
   txt_health: {fileID: 0}
   txt_powerup: {fileID: 0}
+  ShieldBarFull: {fileID: 0}
 --- !u!114 &836060343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,8 +1784,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui_controller: {fileID: 0}
   score: 0
-  health: 10
-  PowerUps: []
+  health: 5
+  maxHealth: 5
+  PowerUpObject: {fileID: 1642151196559886423, guid: 79ce3b4cd01d6df4b9175b45f8c658ce, type: 3}
 --- !u!4 &1266069646
 Transform:
   m_ObjectHideFlags: 0

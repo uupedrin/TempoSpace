@@ -12,13 +12,14 @@ public class Shield : MonoBehaviour
     {
         selfCollider = GetComponent<Collider>();
         selfParticles = GetComponent<ParticleSystem>();
+        StartCoroutine(LateStart(.2f));
     }
 
-    /* IEnumerator LateStart(float waitTime)
+    IEnumerator LateStart(float waitTime)
     {   
         yield return new WaitForSeconds(waitTime);
-        EnableShield();
-    } */
+        DisableShield();
+    }
 
     void OnTriggerEnter(Collider other)
     {

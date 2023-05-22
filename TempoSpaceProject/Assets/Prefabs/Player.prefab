@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 30
-  rotationSpeed: 3
+  rotationSpeed: 8
   maximumRotation: 15
   bulletSpeed: 40
   fireRate: 0.3

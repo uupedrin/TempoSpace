@@ -115,20 +115,22 @@ public class Player : MonoBehaviour
         damageFlash.UseDoDamageFlash();
         GameController.controller.ReduceHealth();
     }
-
+    
     public void SetPowerup(int powerupIndex){
         switch ((Powerups)powerupIndex)
         {
             case Powerups.SHIELD:
+                GameController.controller.ui_controller.SetPowerupText("SHIELD ACQUIRED");
                 shieldObject.EnableShield();
                 RemovePowerup();
             break;
             case Powerups.FIRERATE:
+                GameController.controller.ui_controller.SetPowerupText("FIRERATE INCREASED");
                 fireRate /= 2;
                 Invoke("RevertFireRate", Time.time * 2);
             break;
             case Powerups.HEALTH:
-
+                GameController.controller.AddHealth();
                 RemovePowerup();
             break;
         }
@@ -150,6 +152,12 @@ public class Player : MonoBehaviour
             case "EBullet":
                 Destroy(other.gameObject);
                 TakeDamage();
+            break;
+            case "Powerup":
+            //FIXME corrigir com o roque
+                Debug.Log(other.gameObject.GetComponent<Powerup>().powerupIndex);
+                SetPowerup(other.gameObject.GetComponent<Powerup>().powerupIndex);
+                Destroy(other.gameObject);
             break;
         }
     }

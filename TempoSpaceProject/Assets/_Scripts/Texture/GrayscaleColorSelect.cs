@@ -16,6 +16,10 @@ public class GrayscaleColorSelect : MonoBehaviour
         SetMaterialColors();
     }
 
+    public void UpdateMaterialColors(){
+        SetMaterialColors();
+    }
+
     private void Init(){
         materials = new Material[meshRenderers.Length];
         for (int i = 0; i < meshRenderers.Length; i++)

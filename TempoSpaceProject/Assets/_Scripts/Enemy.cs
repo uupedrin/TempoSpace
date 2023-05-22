@@ -6,24 +6,30 @@ public class Enemy : MonoBehaviour
 {
     public float bulletSpeed, bulletRemoveTime = 2;
     [SerializeField] int health = 3;
-    public GameObject bullet, Target;
+    [SerializeField] float fireRate = 1.5f;
+    [SerializeField] Transform[] guns;
+    public GameObject bullet, target;
     DamageFlash damageFlash;
 
-    private float powerupchance = 10,powerupspeed = 1, speed = 1; // Colocar o n�mero da velocidade mais apropriado em ambos
-    public Transform[] WayPoints; // Para fazer o inimigo ir de um lado para o outro.
+    [SerializeField] float powerupchance = 25;
+    [SerializeField] float powerupSpeed = 30;
+    [SerializeField] float speed = 1;
     private float worldtime, time; // Para que os inimigos n�o fiquem spawnando um encima do outro
     public int EnemyType; // Colocar o tipo de comportamento que o inimigo ter� dentro da unity, basta trocar os n�meros j� que estou utilizando Switch Case.
 
     private void Start() {
-        InvokeRepeating("EnemyShoot",1f, 1.5f);
+        InvokeRepeating("EnemyShoot",1f, fireRate);
         damageFlash = GetComponent<DamageFlash>();
     }
     private void EnemyShoot(){
-        GameObject temp_bullet = Instantiate(bullet, transform.position, Quaternion.Euler(0,180,0));
-        temp_bullet.tag = "EBullet";
-        Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
-        temp_rb.AddForce(transform.forward * bulletSpeed * -1, ForceMode.VelocityChange);
-        Destroy(temp_bullet,bulletRemoveTime);
+        for (int i = 0; i < guns.Length; i++)
+        {
+            GameObject temp_bullet = Instantiate(bullet, guns[i].transform.position, Quaternion.Euler(0,180,0));
+            temp_bullet.tag = "EBullet";
+            Rigidbody temp_rb = temp_bullet.GetComponent<Rigidbody>();
+            temp_rb.AddForce(transform.forward * bulletSpeed * -1, ForceMode.VelocityChange);
+            Destroy(temp_bullet,bulletRemoveTime);
+        }
     }
 
     public void EnemyMove()
@@ -44,7 +50,7 @@ public class Enemy : MonoBehaviour
                 break;
 
             case 3: // Inimigo n�o fica olhando para o player (arrumar).
-                Target = GameObject.FindWithTag("Player");
+                target = GameObject.FindWithTag("Player");
                 transform.position += (transform.forward * speed * Time.deltaTime); // Comportamento provis�rio para o inimigo dos raios
                 break;
         } */
@@ -67,12 +73,12 @@ public class Enemy : MonoBehaviour
 
     private void PowerUpSpawn()
     {
-        int chance = Random.Range(1, 100);
+        int chance = Random.Range(0, 100);
         if (chance <= powerupchance)
         {
-            int options = Random.Range(0, 3); // Aqui voc� coloca o n�mero de power ups que tem!
-            Instantiate(GameController.controller.PowerUps[options], transform.position, Quaternion.identity); // O "Options" ser� o n�mero do PowerUp no Array do GameController
-            GameController.controller.PowerUps[options].transform.position += (transform.forward * powerupspeed * Time.deltaTime);
+            GameObject temp_pwp = Instantiate(GameController.controller.PowerUpObject, transform.position, Quaternion.Euler(-90,0,0));
+            Rigidbody temp_rb = temp_pwp.GetComponent<Rigidbody>();
+            temp_rb.AddForce(Vector3.back * powerupSpeed , ForceMode.VelocityChange);
         }
     }
 
@@ -80,6 +86,8 @@ public class Enemy : MonoBehaviour
         damageFlash.UseDoDamageFlash();
         health -= amountOfDamage;
         if(health <= 0){
+            PowerUpSpawn();
+            GameController.controller.AddScore();
             Destroy(gameObject);
         }
     }

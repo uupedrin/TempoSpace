@@ -11,6 +11,7 @@ TagManager:
   - Life
   - FireRateIncrease
   - Shield
+  - Powerup
   layers:
   - Default
   - TransparentFX
