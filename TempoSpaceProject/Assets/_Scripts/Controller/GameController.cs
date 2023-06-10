@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     public int upgradesFireRate, upgradesWeapons, upgradesSpeed;
 
+    public float sceneSpeed;
+
     public GameObject PowerUpObject;
 
     public bool isPaused = false, unlimitedHealth = false, unlimitedTokens = false;
