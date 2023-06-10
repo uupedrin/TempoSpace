@@ -12,6 +12,7 @@ TagManager:
   - FireRateIncrease
   - Shield
   - Powerup
+  - Token
   layers:
   - Default
   - TransparentFX

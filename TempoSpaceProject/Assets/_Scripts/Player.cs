@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] float bulletSpeed;
-    public float fireRate;
+    public float fireRate = 0.3f;
     float OGFireRate;
     [SerializeField] float bulletRemoveTime;
     [SerializeField] float aimOffset;
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         OGFireRate = fireRate;
         SetPowerup(1);
     }
+
     void Update()
     {
         MovePlayer();
@@ -50,6 +51,11 @@ public class Player : MonoBehaviour
             GameController.controller.ui_controller.QuitGame();
         }
         AimMovement();
+        UpgradeVariables();
+    }
+
+    void UpgradeVariables(){
+        fireRate = OGFireRate - (0.025f * GameController.controller.upgradesFireRate);
     }
 
     void MovePlayer()
@@ -159,6 +165,9 @@ public class Player : MonoBehaviour
                 SetPowerup(other.gameObject.GetComponent<Powerup>().powerupIndex);
                 Destroy(other.gameObject);
             break;
+            case "Token":
+                GameController.controller.EarnToken();
+                break;
         }
     }
 }

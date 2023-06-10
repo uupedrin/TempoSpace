@@ -8,6 +8,12 @@ public class Camera : MonoBehaviour
     public float cameraSpeed;
     public Transform player;
 
+    void Start()
+    {
+        if(cameraOffset.y == 0) cameraOffset.y = transform.position.y;
+        if(cameraOffset.z == 0) cameraOffset.z = transform.position.z;
+    }
+
     private void Update()
     {
         Vector3 playerPos = Vector3.right * player.position.x;

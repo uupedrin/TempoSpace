@@ -88,12 +88,15 @@ public class Enemy : MonoBehaviour
         if(health <= 0){
             PowerUpSpawn();
             GameController.controller.AddScore();
-            Destroy(gameObject);
+            Die();
         }
     }
 
-    void OnDestroy()
+    public GameObject explosion;
+
+    void Die()
     {
-        
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

@@ -14,7 +14,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start() {
         InvokeRepeating("SpanwEnemy", 1f, spawnRate);
-        EndLevel();
         Invoke("EndLevel",60);
     }
 

@@ -9744,6 +9744,7 @@ MonoBehaviour:
   powerupSpeed: 35
   speed: 1
   EnemyType: 1
+  explosion: {fileID: 3593383470119964835, guid: 5a4d3098c5dc79d428454ce481aa784d, type: 3}
 --- !u!114 &402304968380820867
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,9 +29,11 @@ public class GrayscaleColorSelect : MonoBehaviour
     }
 
     private void SetMaterialColors(){
-        for (int i = 0; i < materials.Length; i++)
-        {
-            materials[i].SetColor("_ObjectColor" ,objectColor);
+        if(materials.Length >= 1){
+            for (int i = 0; i < materials.Length; i++)
+            {
+                materials[i].SetColor("_ObjectColor" ,objectColor);
+            }
         }
     }
 }
