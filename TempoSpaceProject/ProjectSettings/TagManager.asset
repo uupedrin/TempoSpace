@@ -9,11 +9,12 @@ TagManager:
   - EBullet
   - Menu
   - Life
-  - FireRateIncrease
   - Shield
   - Powerup
   - Token
   - EnablePlayer
+  - PWPBomb
+  - PWPShield
   layers:
   - Default
   - TransparentFX
