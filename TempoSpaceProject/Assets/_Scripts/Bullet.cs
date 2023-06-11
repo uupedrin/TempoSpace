@@ -4,13 +4,51 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] int damage = 1;
 
-    public void SetDamage(int newDamage){
-        damage = newDamage;
+    public int damage = 1;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float bulletDestroyTime = 2f;
+    public int projectileType;
+    
+    public bool isInverted = false;
+
+    Vector3 vectorToUse;
+
+    Collider missileArea;
+
+    void Start()
+    {
+        CheckRotation();
+        vectorToUse = isInverted ? Vector3.back : Vector3.forward;
+        if(projectileType == 2){
+            missileArea = GetComponents<Collider>()[1];
+            missileArea.enabled = false;
+        }
+        Destroy(gameObject, bulletDestroyTime);
     }
 
-    public int GetDamage(){
-        return damage;
+    void Update(){
+        Movement();
+    }
+
+    void CheckRotation(){
+        isInverted = transform.rotation.y != 1 ? false : true;
+    }
+    
+    void Movement(){
+        if(GameController.controller.isPaused) return;
+
+        transform.position += vectorToUse * Time.deltaTime * bulletSpeed;
+    }
+
+    void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Enemy")){
+            if(missileArea != null && projectileType == 2){
+                missileArea.enabled = true;
+                projectileType = 1;
+                other.GetComponent<Enemy>().TakeDamage();
+                Destroy(gameObject,.5f);
+            }
+        }
     }
 }

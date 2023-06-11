@@ -8,13 +8,19 @@ public class GameController : MonoBehaviour
     public UIController ui_controller;
     public int score, health, maxHealth, tokens;
 
-    public int upgradesFireRate, upgradesWeapons, upgradesSpeed;
+    public int upgradesFireRate, upgradesWeapons = 0, upgradesSpeed;
 
-    public float sceneSpeed;
+    public float sceneSpeed = 30f;
+
+    public float ivulnerabilityTime = 1.5f;
 
     public GameObject PowerUpObject;
 
-    public bool isPaused = false, unlimitedHealth = false, unlimitedTokens = false;
+    public List<Enemy> enemiesInScene = new List<Enemy>();
+
+    public bool isPaused = false, unlimitedHealth = false, unlimitedTokens = false, ivulnerable = false;
+
+    public int killsNeededForToken = 5, tokensSpawned = 0, enemiesKillCount = 0;
 
     private void Awake() {
         if(controller == null){
@@ -41,15 +47,28 @@ public class GameController : MonoBehaviour
         ui_controller.SetPowerupText("HEALTH REGEN");
     }
     public void ReduceHealth(){
-        if (!unlimitedHealth)
+        if (!unlimitedHealth || ivulnerable)
         {
+            ResetAllUpgrades();
             health--;
+            ivulnerable = true;
             if(health<=0){
                 ResetHealthAndScore();
                 ui_controller.SceneChange("DefeatScene");
             }
             ui_controller.UpdateHealth(health);
+            Invoke("DeactivateIvulnerability", ivulnerabilityTime);
         }
+    }
+
+    void DeactivateIvulnerability(){
+        ivulnerable = false;
+    }
+
+    public void ResetAllUpgrades(){
+        upgradesFireRate = 0;
+        upgradesSpeed = 0;
+        upgradesWeapons = 0;
     }
 
     public void Win(){
@@ -62,17 +81,19 @@ public class GameController : MonoBehaviour
         score = 0;
     }
 
-    public void HandlePause(){
-        if (Input.GetKeyDown(KeyCode.Escape))
+    public void HandlePause(bool togglePause = false){
+        if (Input.GetKeyDown(KeyCode.Escape) || togglePause)
         {
             switch(Time.timeScale){
                 case 0:
                     Time.timeScale = 1;
                     isPaused = false;
+                    if(ui_controller.optPanel != null) ui_controller.HideOptMenu();
                     break;
                 case 1:
                     Time.timeScale = 0;
                     isPaused = true;
+                    if(ui_controller.optPanel != null) ui_controller.ShowOptMenu();
                     break;
             }
         }
@@ -82,43 +103,69 @@ public class GameController : MonoBehaviour
     {
         HandlePause();
         HandleCheats();
+        HandleBuying();
     }
+
+
 
     public void EarnToken(int tokensAmount = 1){
         tokens += tokensAmount;
+        ui_controller.UpdateTokens(tokens);
     }
-
     public void SpendToken(int pressedButton){
-        if (tokens > 0)
-        {
-            tokens--;
+        if (tokens > 0 || unlimitedTokens)
+        { 
             switch (pressedButton)
             {
                 case 0: //Firerate Button
+                    if(upgradesFireRate >= 4) return;
+                    ui_controller.SetPowerupText("FIRERATE INCREASED");
                     upgradesFireRate++;
                     break;
 
                 case 1: //More Weapons Button
+                    if(upgradesWeapons >= 3) return;
+                    ui_controller.SetPowerupText("MORE WEAPONS");
                     upgradesWeapons++;
                     break;
 
                 case 2: //Speed Button
+                    if(upgradesSpeed >= 4) return;
+                    ui_controller.SetPowerupText("SPEED INCREASED");
                     upgradesSpeed++;
                     break;
 
                 case 3: //Heal Drone Button
-                    print("Heal Press");
+                    AddHealth();
                     break;
             }
+            if(!unlimitedTokens) tokens--;
             ui_controller.UpdateTokens(tokens);
         }
     }
+    public bool CheckTokens(){
+        if(enemiesKillCount % killsNeededForToken + tokensSpawned == 0){
+            tokensSpawned++;
+            return true;
+        }
+        return false;
+    }
+    public void EnemyKillIncrease(){
+        enemiesKillCount++;
+    }
+    public void ResetEnemyKills(){
+        enemiesKillCount = 0;
+        tokensSpawned = 0;
+    }
+
+
 
     void HandleCheats(){
         if(!isPaused){
             if (Input.GetButtonDown("Skip Level"))
             {
                 //Handle Level Skip
+                ui_controller.SceneChangeByIndex(ui_controller.GetNextSceneIndex());
             }
 
             if (Input.GetButtonDown("Infinite Health"))
@@ -149,6 +196,15 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void HandleBuying(){
+        if(isPaused) return;
+
+        if(Input.GetButtonDown("Firerate")) SpendToken(0);
+        if(Input.GetButtonDown("More Weapons")) SpendToken(1);
+        if(Input.GetButtonDown("Speed")) SpendToken(2);
+        if(Input.GetButtonDown("Call Heal Drone")) SpendToken(3);
     }
 
 }

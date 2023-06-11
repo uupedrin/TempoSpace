@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854732730895721213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.62, y: 0.12, z: 6.7}
+  m_LocalPosition: {x: -2.62, y: 0.12, z: -6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4812,6 +4812,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1187859699944858565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3653418347063898329}
+  m_Layer: 0
+  m_Name: SmokeLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3653418347063898329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187859699944858565}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 2.68, y: 0, z: -5.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5562080824286627658}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1551939175634237731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4838,7 +4869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551939175634237731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.54, y: 0.12, z: 6.7}
+  m_LocalPosition: {x: 2.54, y: 0.12, z: -6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9654,7 +9685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685980318645202834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9662,6 +9693,7 @@ Transform:
   - {fileID: 3847449581408656429}
   - {fileID: 7877648506692073033}
   - {fileID: 2835900161332447341}
+  - {fileID: 3653418347063898329}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9689,8 +9721,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.1350603, y: 0.5929379, z: 3.7677069}
-  m_Center: {x: -5.959169, y: -0.004358083, z: -0.3219428}
+  m_Size: {x: 5.1350603, y: 4.9936724, z: 3.7677069}
+  m_Center: {x: -5.959169, y: 0, z: -0.3219428}
 --- !u!65 &8042458950520584005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9702,8 +9734,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.4896736, y: 0.6356182, z: 3.5397015}
-  m_Center: {x: 5.9745636, y: -0.036402956, z: -0.14174652}
+  m_Size: {x: 5.4896736, y: 4.917117, z: 3.5397015}
+  m_Center: {x: 5.9745636, y: 0, z: -0.14174652}
 --- !u!54 &1717971572517672987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9718,7 +9750,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &3331535823845677490
 MonoBehaviour:
@@ -9732,19 +9764,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130cd2eb8ec14994e8da285ecf3ac736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 50
-  bulletRemoveTime: 2
   health: 2
   fireRate: 1.5
+  powerupDropChance: 100
+  activationZ: 60
+  token: {fileID: 1642151196559886423, guid: 3ac5ccf492748d54a80f17e286f3b5db, type: 3}
+  explosion: {fileID: 3593383470119964835, guid: 5a4d3098c5dc79d428454ce481aa784d, type: 3}
+  smoke: {fileID: 2318629749595870944, guid: 55798e77eeb4a7c439bc9ddc26cd11dc, type: 3}
+  smokeStartTransform: {fileID: 3653418347063898329}
+  moveSpeed: 15
   guns:
   - {fileID: 2835900161332447341}
   bullet: {fileID: 8039816862834279505, guid: a7ae92dd6a1d71f4397ef1f46765d874, type: 3}
-  target: {fileID: 0}
-  powerupchance: 10
-  powerupSpeed: 35
-  speed: 1
-  EnemyType: 1
-  explosion: {fileID: 3593383470119964835, guid: 5a4d3098c5dc79d428454ce481aa784d, type: 3}
 --- !u!114 &402304968380820867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9783,7 +9814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9120898664810253771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0, z: -6.85}
+  m_LocalPosition: {x: -0.06, y: 0, z: 6.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9815,7 +9846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9823,11 +9854,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9835,7 +9866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897a4f2ac5cfe5249a9ed344632daecf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

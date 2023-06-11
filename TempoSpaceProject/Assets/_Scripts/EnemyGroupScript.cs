@@ -5,8 +5,6 @@ using UnityEngine;
 public class EnemyGroupScript : MonoBehaviour
 {
     [SerializeField] float activationZ;
-    [SerializeField] float moveSpeed;
-
     public Enemy[] enemyGroup;
 
     private void DeactivateChildren(){
@@ -17,13 +15,28 @@ public class EnemyGroupScript : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    private void AddEnemiesToGameController(){
+        for(int i = 0; i < enemyGroup.Length; i++){
+            GameController.controller.enemiesInScene.Add(enemyGroup[i]);
+        }
+    }
+
     void Start()
     {
         DeactivateChildren();
+        AddEnemiesToGameController();
     }
-    
+
+    void Update()
+    {
+        Movement();  
+        ZChecker();
+    }
+
+
     void Movement(){
+        if(GameController.controller.isPaused)return;
+        
         transform.position += Vector3.back*Time.deltaTime*GameController.controller.sceneSpeed;
 
     }
@@ -36,13 +49,5 @@ public class EnemyGroupScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     Movement();  
-
-     ZChecker();
     }
 }

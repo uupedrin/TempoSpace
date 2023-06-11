@@ -13,22 +13,32 @@ public class Powerup : MonoBehaviour
         grayscaller = GetComponent<GrayscaleColorSelect>();
 
         if(powerupIndex <= 0){//No Powerup
-            powerupIndex = Random.Range(1,4);
+            powerupIndex = Random.Range(1,3);
         }
 
         switch(powerupIndex){
             case 1: //Shield
+                gameObject.tag = "PWPShield";
                 grayscaller.objectColor = Color.blue;
                 grayscaller.UpdateMaterialColors();
             break;
             case 2:
+                gameObject.tag = "PWPBomb";
                 grayscaller.objectColor = Color.red;
                 grayscaller.UpdateMaterialColors();
             break;
-            case 3:
-                grayscaller.objectColor = Color.green;
-                grayscaller.UpdateMaterialColors();
-            break;
+            
         }
+        transform.position = new Vector3(transform.position.x,transform.position.y,100);
+    }
+
+    void Update(){
+        Movement();
+    }
+
+    void Movement(){
+        if(GameController.controller.isPaused) return;
+
+        transform.position += Vector3.back * Time.deltaTime * GameController.controller.sceneSpeed / 3f;
     }
 }
