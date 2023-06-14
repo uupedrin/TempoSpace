@@ -97,13 +97,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130cd2eb8ec14994e8da285ecf3ac736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
-  bulletRemoveTime: 2
   health: 5
   fireRate: 1.5
+  canBeKilled: 0
+  hasSpawned: 0
+  isDead: 0
+  powerupDropChance: 20
+  activationZ: 0
+  token: {fileID: 0}
+  explosion: {fileID: 0}
+  smoke: {fileID: 0}
+  smokeStartTransform: {fileID: 0}
+  moveSpeed: 1
+  guns: []
   bullet: {fileID: 0}
-  target: {fileID: 0}
-  EnemyType: 2
 --- !u!1001 &7238406352754341179
 PrefabInstance:
   m_ObjectHideFlags: 0
