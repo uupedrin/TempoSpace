@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0001879069, g: 0.00022940378, b: 0.00093132065, a: 1}
+  m_IndirectSpecularColor: {r: 0.00017179355, g: 0.00021183949, b: 0.0008922691, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1142,6 +1142,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6c21d2b674dc6484c991eab1be4efe20, type: 3}
   - {fileID: 8300000, guid: 7807063512d2c644584cb5f5986513f5, type: 3}
   - {fileID: 8300000, guid: 9d8ea5e76809a9042a5e0398f3dcfe8c, type: 3}
+  - {fileID: 8300000, guid: 2b55fc16a8993654ea987e1da5c85b45, type: 3}
+  - {fileID: 8300000, guid: 2c7ce1061b057274383c6c06499e2920, type: 3}
 --- !u!4 &492910338
 Transform:
   m_ObjectHideFlags: 0
@@ -1980,6 +1982,7 @@ MonoBehaviour:
   currentScene: 
   previousScene: 
   ShieldBarFull: {fileID: 0}
+  BombBarFull: {fileID: 0}
   optPanel: {fileID: 898776437}
 --- !u!4 &815991816
 Transform:
@@ -3435,10 +3438,14 @@ MonoBehaviour:
   sceneSpeed: 30
   ivulnerabilityTime: 1.5
   PowerUpObject: {fileID: 1642151196559886423, guid: 79ce3b4cd01d6df4b9175b45f8c658ce, type: 3}
+  enemiesInScene: []
   isPaused: 0
   unlimitedHealth: 0
   unlimitedTokens: 0
   ivulnerable: 0
+  killsNeededForToken: 5
+  tokensSpawned: 0
+  enemiesKillCount: 0
 --- !u!4 &1266069646
 Transform:
   m_ObjectHideFlags: 0

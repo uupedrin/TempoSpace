@@ -9766,7 +9766,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   fireRate: 1.5
-  powerupDropChance: 100
+  canBeKilled: 0
+  hasSpawned: 0
+  isDead: 0
+  powerupDropChance: 20
   activationZ: 60
   token: {fileID: 1642151196559886423, guid: 3ac5ccf492748d54a80f17e286f3b5db, type: 3}
   explosion: {fileID: 3593383470119964835, guid: 5a4d3098c5dc79d428454ce481aa784d, type: 3}

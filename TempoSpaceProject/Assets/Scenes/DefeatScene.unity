@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00020241387, g: 0.00024634943, b: 0.0010084778, a: 1}
+  m_IndirectSpecularColor: {r: 0.00006273684, g: 0.000076866825, b: 0.0003302708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -569,7 +569,15 @@ MonoBehaviour:
   txt_score: {fileID: 0}
   txt_health: {fileID: 0}
   txt_powerup: {fileID: 0}
+  txt_tokens: {fileID: 0}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  currentScene: 
+  previousScene: 
   ShieldBarFull: {fileID: 0}
+  BombBarFull: {fileID: 0}
+  optPanel: {fileID: 0}
 --- !u!1 &1029092687
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,8 +855,21 @@ MonoBehaviour:
   score: 0
   health: 0
   maxHealth: 0
+  tokens: 0
+  upgradesFireRate: 0
+  upgradesWeapons: 0
+  upgradesSpeed: 0
+  sceneSpeed: 30
+  ivulnerabilityTime: 1.5
   PowerUpObject: {fileID: 0}
+  enemiesInScene: []
   isPaused: 0
+  unlimitedHealth: 0
+  unlimitedTokens: 0
+  ivulnerable: 0
+  killsNeededForToken: 5
+  tokensSpawned: 0
+  enemiesKillCount: 0
 --- !u!4 &1266069646
 Transform:
   m_ObjectHideFlags: 0
@@ -1037,7 +1058,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameScene
+          m_StringArgument: Level01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1921126663

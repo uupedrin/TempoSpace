@@ -73,6 +73,11 @@ public class AudioController : MonoBehaviour
                 source.loop = false;
                 StartCoroutine(Level01Loop(source.clip.length));
                 break;
+            case "Level02":
+                source.clip = musics[4];
+                source.loop = false;
+                StartCoroutine(Level02Loop(source.clip.length));
+                break;
         }
         PlayMusic();
     }
@@ -87,6 +92,13 @@ public class AudioController : MonoBehaviour
     IEnumerator Level01Loop(float clipLength){
         yield return new WaitForSecondsRealtime(clipLength);
         source.clip = musics[3];
+        source.loop = true;
+        PlayMusic();
+    }
+
+    IEnumerator Level02Loop(float clipLength){
+        yield return new WaitForSecondsRealtime(clipLength);
+        source.clip = musics[5];
         source.loop = true;
         PlayMusic();
     }

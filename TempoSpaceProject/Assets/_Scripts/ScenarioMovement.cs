@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ScenarioMovement : MonoBehaviour
 {   
+    public bool destroyMe = true;
+
     void Update()
     {
         if(GameController.controller.isPaused) return;
 
         transform.position += Vector3.back * Time.deltaTime * GameController.controller.sceneSpeed;
 
-        if (transform.position.z <= -500)
+        if (transform.position.z <= -500 && destroyMe)
         {
             Destroy(gameObject);
         }
