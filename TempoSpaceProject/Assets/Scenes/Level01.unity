@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00017389661, g: 0.0002151007, b: 0.00090454065, a: 1}
+  m_IndirectSpecularColor: {r: 0.00021396534, g: 0.00025979264, b: 0.0010672457, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1613,7 +1613,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0.9, b: 0.9, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.1346742, g: 0.48122165, b: 0.735849, a: 1}
     m_SelectedColor: {r: 0.4489983, g: 0.754717, b: 0.28764686, a: 1}
@@ -4168,6 +4168,7 @@ MonoBehaviour:
   ShieldBarFull: {fileID: 1356804604}
   BombBarFull: {fileID: 817983693}
   optPanel: {fileID: 510318063}
+  HealthButton: {fileID: 367720324}
 --- !u!4 &989583963
 Transform:
   m_ObjectHideFlags: 0

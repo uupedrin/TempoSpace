@@ -32,7 +32,8 @@ public class UIController : MonoBehaviour
     [Header("Menus")]
     public GameObject optPanel;
 
-
+    [Header("Color Management")]
+    public Button HealthButton;
 
     private void Start() {
         GameController.controller.ui_controller = this;
@@ -41,9 +42,6 @@ public class UIController : MonoBehaviour
     private void Update(){
         AudioSceneCheck();
     }
-
-
-
 
     public void SceneChange(string scene){
         SceneManager.LoadScene(scene);
@@ -145,5 +143,14 @@ public class UIController : MonoBehaviour
 
     public void HideOptMenu(){
         optPanel.SetActive(false);
+    }
+
+    public void ImageColorChange()
+    {
+
+    }
+    public void ImageColorNormal()
+    {
+
     }
 }

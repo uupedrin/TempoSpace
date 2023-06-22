@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
 
     public int killsNeededForToken = 5, tokensSpawned = 0, enemiesKillCount = 0;
 
+    bool CanCallRepair = true;
+
     private void Awake() {
         if(controller == null){
             controller = this;
@@ -32,6 +34,7 @@ public class GameController : MonoBehaviour
 
         health = maxHealth;
     }
+
     public void AddScore(){
         score+=200;
         ui_controller.UpdateScore(score);
@@ -136,13 +139,26 @@ public class GameController : MonoBehaviour
                     break;
 
                 case 3: //Heal Drone Button
-                    AddHealth();
+                    if (CanCallRepair == true)
+                    {
+                        AddHealth();
+                        ui_controller.HealthButton.interactable = false;
+                        CanCallRepair = false;
+                        Invoke("RepairTimerTrue", 4f);
+                    }
                     break;
             }
             if(!unlimitedTokens) tokens--;
             ui_controller.UpdateTokens(tokens);
         }
     }
+
+    void RepairTimerTrue()
+    {
+        CanCallRepair = true;
+        ui_controller.HealthButton.interactable = true;
+    }
+
     public bool CheckTokens(){
         if(enemiesKillCount % killsNeededForToken + tokensSpawned == 0){
             tokensSpawned++;
