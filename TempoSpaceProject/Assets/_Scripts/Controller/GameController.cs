@@ -160,7 +160,8 @@ public class GameController : MonoBehaviour
     }
 
     public bool CheckTokens(){
-        if(enemiesKillCount % killsNeededForToken + tokensSpawned == 0){
+        if(enemiesKillCount >= killsNeededForToken + tokensSpawned){
+            enemiesKillCount = 0;
             tokensSpawned++;
             return true;
         }

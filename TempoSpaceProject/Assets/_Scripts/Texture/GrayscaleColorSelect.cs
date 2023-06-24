@@ -35,5 +35,8 @@ public class GrayscaleColorSelect : MonoBehaviour
                 materials[i].SetColor("_ObjectColor" ,objectColor);
             }
         }
+        else{
+            return;
+        }
     }
 }

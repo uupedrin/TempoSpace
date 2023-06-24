@@ -78,6 +78,14 @@ public class AudioController : MonoBehaviour
                 source.loop = false;
                 StartCoroutine(Level02Loop(source.clip.length));
                 break;
+            case "FirstScene":
+                source.clip = musics[7];
+                source.loop = true;
+                break;
+            case "Introduction":
+                source.clip = musics[6];
+                source.loop = true;
+                break;
         }
         PlayMusic();
     }

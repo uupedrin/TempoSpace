@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00021630322, g: 0.0002627452, b: 0.0010776997, a: 1}
+  m_IndirectSpecularColor: {r: 0.00020838366, g: 0.00025380318, b: 0.0010402822, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -304,8 +304,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
+    m_Font: {fileID: 12800000, guid: 562d399c7fccbff4e9fea0617363e1d8, type: 3}
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '200 years ago in the Nebula Orchestra, a war began. Insearch of power,
+  m_Text: '200 years ago in the Nebula Orchestra, a war began. In search of power,
     an evil being consumed by greed, White Hawk, planned to dominate the entire galaxy,
     holding it entirely in the palm of his hand. To achieve this, he created a machine
     capable of accessing a perverse dimension called the Void. His power was overwhelming,
@@ -649,6 +649,7 @@ MonoBehaviour:
   ShieldBarFull: {fileID: 0}
   BombBarFull: {fileID: 0}
   optPanel: {fileID: 0}
+  HealthButton: {fileID: 0}
 --- !u!4 &632129636
 Transform:
   m_ObjectHideFlags: 0
@@ -1398,7 +1399,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level01
+          m_StringArgument: FirstScene
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1178945243}
@@ -1631,16 +1632,16 @@ RectTransform:
   m_GameObject: {fileID: 2047815832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 7.374, y: 7.374, z: 7.374}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1117153018}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -306.68}
-  m_SizeDelta: {x: 101.003, y: 101.003}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 101.00299, y: 101.003}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &2047815834
 MonoBehaviour:
@@ -1728,7 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10239408, g: 0.10328054, b: 0.122641504, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.92941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

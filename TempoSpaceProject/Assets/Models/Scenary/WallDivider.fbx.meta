@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 22fc53e2ef9ff4647b649e7c5460daf7
+guid: 560dee5dabdfbc84b8d7b72397c18cb7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,12 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: FullTransparency
-    second: {fileID: 2100000, guid: b38330b89b32cf34b9ac0a489bff3ad7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SixtyFourBaseTexture
+      name: Atlas
     second: {fileID: 2100000, guid: 3fb9f2fd54efef0429d67d44e3b59159, type: 2}
   materials:
     materialImportMode: 2

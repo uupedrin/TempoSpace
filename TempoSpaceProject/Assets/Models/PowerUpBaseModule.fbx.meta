@@ -3,7 +3,17 @@ guid: 7e98df0a0ced00841b053a35f90b4af4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FullTransparency
+    second: {fileID: 2100000, guid: b38330b89b32cf34b9ac0a489bff3ad7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SixtyFourBaseTexture
+    second: {fileID: 2100000, guid: df6e9154c0ece004a818d81d3393ad6d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
