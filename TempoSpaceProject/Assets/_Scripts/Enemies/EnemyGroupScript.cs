@@ -8,7 +8,7 @@ public class EnemyGroupScript : MonoBehaviour
     public Enemy[] enemyGroup;
     public GameObject spyBlinderPrefab;
 
-    public bool spawnSpy = false;
+    public bool spawnSpy = false, halfSpeed =false;
 
     private void DeactivateChildren(){
         enemyGroup = GetComponentsInChildren<Enemy>();
@@ -40,7 +40,9 @@ public class EnemyGroupScript : MonoBehaviour
     void Movement(){
         if(GameController.controller.isPaused)return;
         
-        transform.position += Vector3.back*Time.deltaTime*GameController.controller.sceneSpeed;
+        float speed = halfSpeed ? GameController.controller.sceneSpeed / 2 : GameController.controller.sceneSpeed;
+
+        transform.position += Vector3.back*Time.deltaTime*speed;
 
     }
     
