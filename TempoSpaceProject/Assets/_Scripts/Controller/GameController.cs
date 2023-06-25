@@ -35,8 +35,8 @@ public class GameController : MonoBehaviour
         health = maxHealth;
     }
 
-    public void AddScore(){
-        score+=200;
+    public void AddScore(int addScore = 200){
+        score+=addScore;
         ui_controller.UpdateScore(score);
 
     }

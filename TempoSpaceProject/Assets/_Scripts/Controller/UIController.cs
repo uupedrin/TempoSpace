@@ -145,12 +145,14 @@ public class UIController : MonoBehaviour
         optPanel.SetActive(false);
     }
 
-    public void ImageColorChange()
-    {
 
+    public Animator blindAnimator;
+    public void BlindPlayer(){
+        blindAnimator.SetBool("playerBlind",true);
+        Invoke("Unblind",.2f);
     }
-    public void ImageColorNormal()
-    {
 
+    void Unblind(){
+        blindAnimator.SetBool("playerBlind", false);
     }
 }

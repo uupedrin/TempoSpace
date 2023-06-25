@@ -72,6 +72,7 @@ public class Enemy : MonoBehaviour
 
     
     private void EnemyShoot(){
+        if(bullet == null) return;
         for (int i = 0; i < guns.Length; i++)
         {
             Instantiate(bullet, guns[i].transform.position, Quaternion.Euler(0,180,0));

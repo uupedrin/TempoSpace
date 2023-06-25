@@ -86,6 +86,10 @@ public class AudioController : MonoBehaviour
                 source.clip = musics[6];
                 source.loop = true;
                 break;
+            case "Credits":
+                source.clip = musics[8];
+                source.loop = true;
+                break;
         }
         PlayMusic();
     }

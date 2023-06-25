@@ -6,6 +6,9 @@ public class EnemyGroupScript : MonoBehaviour
 {
     [SerializeField] float activationZ;
     public Enemy[] enemyGroup;
+    public GameObject spyBlinderPrefab;
+
+    public bool spawnSpy = false;
 
     private void DeactivateChildren(){
         enemyGroup = GetComponentsInChildren<Enemy>();
@@ -47,6 +50,7 @@ public class EnemyGroupScript : MonoBehaviour
                 enemyGroup[i].gameObject.SetActive(true);
                 enemyGroup[i].transform.parent = null;
             }
+            if(spawnSpy) Instantiate(spyBlinderPrefab, Vector3.forward * 100, Quaternion.Euler(Vector3.up * 180));
             Destroy(gameObject);
         }
     }
