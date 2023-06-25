@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00021789476, g: 0.0002649951, b: 0.001087537, a: 1}
+  m_IndirectSpecularColor: {r: 0.00006834996, g: 0.00008293211, b: 0.00034240447, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -195,8 +195,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Made By\r:\nPedro Veiga Ribeiro\r\nAndrew\r Teodoro Vieira\n\r\nMenu Song
-    - Trevor Lentz | Gabriel Campos Martins Fontes\r\n\r\nSound Effects:\nJes\xFAs
-    Lastra\r\n@Shades\r\nrealmadpuppy\r\nsiriuss22\r\nRobinhood76\r\nInspectorJ\r\nthecheeseman\r\nZane
+    - Trevor Lentz | Gabriel Fontes\r\n\r\nSound Effects:\nJes\xFAs Lastra\r\n@Shades\r\nrealmadpuppy\r\nsiriuss22\r\nRobinhood76\r\nInspectorJ\r\nthecheeseman\r\nZane
     Little\r\nbart\r\n\r\nFonts\nContrail One - Riccardo De Franceschi\r\nVT323 -
     Peter Hull\r\n\nTeachers who made this project possible:\r\nDan\r\nRoque\r\nDiego\r\nMarquinhos\n\nAnd
     Thanks to You, the Player <3"
@@ -326,6 +325,7 @@ MonoBehaviour:
   BombBarFull: {fileID: 0}
   optPanel: {fileID: 0}
   HealthButton: {fileID: 0}
+  blindAnimator: {fileID: 0}
 --- !u!4 &632129636
 Transform:
   m_ObjectHideFlags: 0

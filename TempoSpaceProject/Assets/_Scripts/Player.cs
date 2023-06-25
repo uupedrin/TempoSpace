@@ -198,6 +198,10 @@ public class Player : MonoBehaviour
                 GameController.controller.EarnToken();
                 Destroy(other.gameObject);
                 break;
+            case "Smoke":
+                TakeDamage();
+                other.GetComponent<Hatch>().HitTaken();
+                break;
         }
     }
     private void BombPWPHandle(){

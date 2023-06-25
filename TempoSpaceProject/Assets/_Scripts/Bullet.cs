@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     public int damage = 1;
     [SerializeField] float bulletSpeed;
-    [SerializeField] float bulletDestroyTime = 2f;
+    [SerializeField] float bulletDestroyTime = 5f;
     public int projectileType;
     
     public bool isInverted = false;

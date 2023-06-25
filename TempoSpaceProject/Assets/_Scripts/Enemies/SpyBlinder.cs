@@ -8,7 +8,7 @@ public class SpyBlinder : MonoBehaviour
     public float xSpeed = 5f;
     public int health = 8;
 
-    private bool canAttack = true, playerRange = false, canBeKilled = false, hasSpawned = true;
+    private bool canBeKilled = false, hasSpawned = true;
 
     public GameObject explosionEffect;
     RigDamageFlash damageFlash;

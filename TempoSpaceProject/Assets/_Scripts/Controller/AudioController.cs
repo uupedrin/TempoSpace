@@ -90,6 +90,10 @@ public class AudioController : MonoBehaviour
                 source.clip = musics[8];
                 source.loop = true;
                 break;
+            case "DefeatScene":
+                source.clip = musics[8];
+                source.loop = true;
+                break;
         }
         PlayMusic();
     }

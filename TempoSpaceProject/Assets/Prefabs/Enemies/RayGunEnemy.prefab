@@ -4950,7 +4950,7 @@ MonoBehaviour:
   explosion: {fileID: 3593383470119964835, guid: 5a4d3098c5dc79d428454ce481aa784d, type: 3}
   smoke: {fileID: 2318629749595870944, guid: 55798e77eeb4a7c439bc9ddc26cd11dc, type: 3}
   smokeStartTransform: {fileID: 5300531314203816431}
-  moveSpeed: 10
+  moveSpeed: 12.5
   guns:
   - {fileID: 9180941400755746847}
   - {fileID: 7607293305777468601}

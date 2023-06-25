@@ -15,6 +15,9 @@ TagManager:
   - EnablePlayer
   - PWPBomb
   - PWPShield
+  - Boss
+  - Smoke
+  - Doors
   layers:
   - Default
   - TransparentFX
