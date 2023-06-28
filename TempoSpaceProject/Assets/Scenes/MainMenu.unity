@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00006568675, g: 0.000079425816, b: 0.0003284781, a: 1}
+  m_IndirectSpecularColor: {r: 0.00006734948, g: 0.00008162549, b: 0.0003369539, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c9e26951133aaf246a20dafbff409c69, type: 3}
   - {fileID: 8300000, guid: c71096061d5fef049b05b307df438d3b, type: 3}
   - {fileID: 8300000, guid: 27e6f4b8da44c7948aa9e1e955989218, type: 3}
+  - {fileID: 8300000, guid: 05f1bf3457219bb44a21d8b89af42d44, type: 3}
 --- !u!4 &492910338
 Transform:
   m_ObjectHideFlags: 0
@@ -2850,6 +2851,7 @@ MonoBehaviour:
   BombBarFull: {fileID: 0}
   optPanel: {fileID: 898776437}
   HealthButton: {fileID: 0}
+  blindAnimator: {fileID: 0}
 --- !u!4 &815991816
 Transform:
   m_ObjectHideFlags: 0
@@ -4302,8 +4304,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 492910337}
-        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+      - m_Target: {fileID: 815991815}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ResetAllValues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 815991815}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: StopMusic
         m_Mode: 1
         m_Arguments:

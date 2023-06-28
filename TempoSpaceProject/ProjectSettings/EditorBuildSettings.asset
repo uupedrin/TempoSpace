@@ -21,15 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level02.unity
     guid: 7663ffff353aa8a46abb9855759cd709
   - enabled: 1
-    path: Assets/Scenes/VictoryScene.unity
-    guid: d7b7c0d172292be48a9797dbbd123413
+    path: Assets/Scenes/BossFight.unity
+    guid: 379352c0e0ddea34d8f2b8901734122d
   - enabled: 1
-    path: Assets/Scenes/DefeatScene.unity
-    guid: e438d58fda0d0294887158d60bca6aa4
+    path: Assets/Scenes/VictoryScene.unity
+    guid: f69f48e5411aba147bf999e2927b48d5
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 6f098fc0f3427aa419c74f6cceeea67e
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 6dfd030bb2b4485458b1833d7bb3622e
+    path: Assets/Scenes/DefeatScene.unity
+    guid: e438d58fda0d0294887158d60bca6aa4
   m_configObjects: {}

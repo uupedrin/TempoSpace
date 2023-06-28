@@ -74,6 +74,13 @@ public class GameController : MonoBehaviour
         upgradesWeapons = 0;
     }
 
+    public void ResetAllValues(){
+        health = 5;
+        tokens = 0;
+        score = 0;
+        ResetAllUpgrades();
+    }
+
     public void Win(){
         ResetHealthAndScore();
         ui_controller.SceneChange("VictoryScene");

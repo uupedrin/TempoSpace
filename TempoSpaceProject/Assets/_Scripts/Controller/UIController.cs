@@ -65,13 +65,40 @@ public class UIController : MonoBehaviour
         Application.Quit();
     }
 
+    void TryUpdateHealth(){
+        if(txt_health != null){
+            UpdateHealth(GameController.controller.health);
+        }
+    }
 
+    void TryUpdateScore(){
+        if(txt_score != null){
+            UpdateScore(GameController.controller.score);
+        }
+    }
+
+    void TryUpdateToken(){
+        if(txt_tokens != null){
+            UpdateTokens(GameController.controller.tokens);
+        }
+    }
+
+    public void ResetAllValues(){
+        GameController.controller.ResetAllValues();
+    }
+
+    public void StopMusic(){
+        AudioController.controller.StopMusic();
+    }
 
     private void AudioSceneCheck(){
         currentScene = SceneManager.GetActiveScene().name;
 
         if (previousScene != currentScene){
             AudioController.controller.ChangeSong(currentScene);
+            TryUpdateHealth();
+            TryUpdateScore();
+            TryUpdateToken();
             previousScene = currentScene;
         } 
     }

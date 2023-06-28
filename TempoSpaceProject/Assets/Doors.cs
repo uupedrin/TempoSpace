@@ -16,7 +16,6 @@ public class Doors : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player")){
-            print("Player Enter");
             myAnimator.SetBool("doorOpen", true);
             Destroy(myCollider);
         }

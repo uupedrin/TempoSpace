@@ -18,6 +18,7 @@ TagManager:
   - Boss
   - Smoke
   - Doors
+  - Gun
   layers:
   - Default
   - TransparentFX
